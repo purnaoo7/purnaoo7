@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game</title>
+    <style>
+        body {
+            overflow: hidden;
+            animation: shakebody linear 6s infinite;
+        }
+
+        .sky {
+            height: 100vh;
+            width: 100%;
+            background-image: url(../public/assets3/background.jpg);
+            background-repeat: no-repeat;
+            position: absolute;
+        }
+
+        .trees {
+            height: 100vh;
+            width: 800vw;
+            background-image: url(../public/assets3/trees.png);
+            background-size: contain;
+            background-repeat: repeat-x;
+            position: absolute;
+            top: -144px;
+            animation: carMove linear 8s infinite;
+
+        }
+
+        .track {
+            height: 60vh;
+            width: 800vw;
+            background-image: url(../public/assets3/track.png);
+            background-repeat: repeat-x;
+            position: absolute;
+            top: 70vh;
+            animation: carMove linear 8s infinite;
+
+        }
+
+        .car {
+            height: 100px;
+            width: 380px;
+            background-image: url(../public/assets3/PinClipart.com_ferrari-clip-art_4178129.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: absolute;
+            left: 444px;
+            bottom: 30vh;
+            animation: shake linear .3s infinite;
+
+        }
+
+
+        .wheel1 img {
+            width: 77px;
+            position: relative;
+            top: 35px;
+            left: 38px;
+            animation: wheelRotation linear .16s infinite;
+        }
+
+
+        .wheel2 img {
+            width: 77px;
+            position: relative;
+            top: -47px;
+            left: 258px;
+            animation: wheelRotation linear .16s infinite;
+
+        }
+
+        @keyframes wheelRotation {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes carMove {
+            100% {
+                transform: translateX(-500vw);
+            }
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateY(-5px);
+            }
+
+            50% {
+                transform: translateY(5px);
+            }
+
+            100% {
+                transform: translateY(-5px);
+            }
+        }
+        .animate{
+             animation: 0.6s linear;
+        }
+        @keyframes jump {
+            0% {
+                top: 0px;
+            }
+
+            50% {
+                top: 500px;
+            }
+
+            100% {
+                top: 0px;
+            }
+        }
+    </style>
+    <script>
+        var car = document.getElementById("car");
+        function jump() {
+            car.classList.add("animate");
+            setTimeout(function () {
+                car.classList.remove("animate");
+            }, 500);
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sky">
+            <div class="trees"></div>
+            <div class="track"></div>
+            <div class="animate" >
+                <div id="car">
+                    <div class="car">
+                        <div class="wheel wheel1">
+                            <img src="../public/assets3/car_wheel_left.png" alt="">
+                        </div>
+                        <div class="wheel wheel2">
+                            <img src="../public/assets3/car_wheel_left.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="humps">
+                <div class="humps">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
